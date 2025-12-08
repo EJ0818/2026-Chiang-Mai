@@ -123,9 +123,10 @@
                 </h2>
                 
                 <!-- 匯率計算機 -->
+                <!-- 若更改匯率，請更新129行與284行! -->
                 <div class="bg-[#eaf1f7] p-4 rounded-2xl shadow-inner mb-6">
                     <h3 class="text-xl font-bold text-[#4A90E2] mb-3">即時匯率換算</h3>
-                    <p class="text-xs text-gray-500 mb-2">匯率設定：1 THB (泰銖) ≈ 0.90 TWD (台幣)</p>
+                    <p class="text-xs text-gray-500 mb-2">匯率設定：1 THB (泰銖) ≈ 1 TWD (台幣)</p>
                     <input type="text" id="calcInput" placeholder="輸入算式 (e.g., 500+200*3)" 
                            class="w-full p-3 mb-3 border-2 border-[#90c74b] rounded-xl text-lg font-mono focus:ring-2 focus:ring-[#F7D754]">
                     <button onclick="calculateCurrency()" class="btn-zootopia-primary w-full text-lg">
@@ -280,7 +281,7 @@
             MEMO: `${APP_ID}-memo`,
             EXPENSES: `${APP_ID}-expenses`,
         };
-        const EXCHANGE_RATE_TWD_PER_THB = 0.90; // 1 THB = 0.90 TWD
+        const EXCHANGE_RATE_TWD_PER_THB = 1; // 1 THB = 1 TWD
         
         let expenses = []; // 儲存記帳資料
 
