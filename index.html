@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>清邁親友行程助理 - Zootopia Style</title>
+    <title>清邁行程助理 - Zootopia Style</title>
     <!-- 載入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 載入 Font Awesome 圖示 -->
@@ -68,7 +68,7 @@
             <h1 class="text-3xl font-extrabold flex items-center">
                 <i class="fas fa-paw mr-2"></i> 清邁行程助理
             </h1>
-            <p class="text-sm opacity-90 mt-1">一起出發慶祝小寶三歲生日！</p>
+            <p class="text-sm opacity-90 mt-1">一起出發慶祝小寶三歲生日🎂</p>
         </header>
 
         <!-- 內容區域 -->
@@ -296,14 +296,14 @@
                 { date: '11/23 - 11/25', name: 'เชียงใหม่ตำบล ท่าศาลา', notes: '市區住宿，方便逛街與夜市' }
             ],
             checklist: [
+                { category: '成人', item: '‼️檢查‼️：護照效期/泰國數位入境卡/每人現金兩萬(入境規定)/個人照片兩張/身分證影本', checked: false },
                 { category: '成人', item: '隨身包：護照/錢包/行充/小衛生紙/小水', checked: false },
-                { category: '成人', item: '充電線', checked: false },
-                { category: '成人', item: '變壓器/轉接頭', checked: false },
-                { category: '成人', item: '衣服五套/睡衣一套', checked: false },
-                { category: '成人', item: '足夠現金 (THB)', checked: false },
+                { category: '成人', item: '充電線/變壓器/轉接頭', checked: false },
+                { category: '成人', item: '衣服五套/睡衣一套/泳衣一套', checked: false },
                 { category: '成人', item: '拖鞋', checked: false },
                 { category: '成人', item: '化妝盥洗用品：牙刷/牙膏/洗面乳/沐浴乳/乳液/髮圈/吹風機', checked: false },
                 { category: '成人', item: '備用藥：退燒/止痛/胃藥', checked: false },
+                { category: '成人', item: '髒衣袋數個', checked: false },
                 { category: '寶寶', item: '隨身包：濕紙巾/尿布/備用衣/防蚊液/水/酒精/麵包/玩具', checked: false },
                 { category: '寶寶', item: '衣服六套/睡衣一套', checked: false },
                 { category: '寶寶', item: '盥洗用品：牙刷/牙膏/沐浴乳/乳液/浴巾', checked: false },
@@ -317,16 +317,16 @@
             itinerary: [
                 { day: 1, date: '11/21 (六)', events: [
                     { time: '6:00', item: '出發: 桃園機場', notes: 'CI851，7:20起飛，推車機邊托運', type: 'flight' },
-                    { time: '10:30', item: '抵達: 清邁機場', notes: '取行李', type: 'event' },
+                    { time: '10:30', item: '抵達: 清邁機場', notes: '取行李與推車', type: 'event' },
                     { time: '11:00', item: '取車: 清邁機場', notes: '取車處TBD，記得買保險', type: 'event' },
                     { time: '12:00', item: '午餐：Goodsouls Kitchen', notes: '泰北蔬食料理，推薦優格碗, 馬鈴薯捲餅, 咖喱麵, 鳳梨炒飯，可找附近葷食餐廳分開吃', type: 'food', link: 'Goodsouls Kitchen, Chiang Mai' },
                     { time: '14:00', item: '採買補給品: Rimping Supermarket (Maya)', notes: '採買零食飲用水for山上住宿，有水果、麵包、食材，類似Jason', type: 'shop', link: 'Rimping Supermarket Maya' },
                     { time: '16:00', item: 'Check in: Elephant friend', notes: '山區住宿，注意蚊蟲', type: 'stay' }
                 ]},
                 { day: 2, date: '11/22 (日)', events: [
-                    { time: '8:00', item: '早餐: Elephant morning call', notes: '山區陽光早餐免費，morning call需付費', type: 'food' },
+                    { time: '8:00', item: '早餐 & Elephant morning call', notes: '山區陽光早餐免費，morning call需付費', type: 'food' },
                     { time: '10:00', item: '一日套裝行程', notes: '大象洗澡 + 竹筏漂流 + 瀑布野餐', type: 'activity' },
-                    { time: '18:00', item: '晚餐：付費晚餐', notes: '住宿地解決，休息放鬆，更晚有酒吧', type: 'food' }
+                    { time: '18:00', item: '晚餐：付費晚餐', notes: '住宿地解決，休息放鬆，更晚一點有酒吧', type: 'food' }
                 ]},
                 { day: 3, date: '11/23 (一)', events: [
                     { time: '8:00', item: '早餐 & Check out', notes: '10點左右離開山區', type: 'stay' },
@@ -334,17 +334,17 @@
                     { time: '13:00', item: '午餐: Free Bird Cafe', notes: '緬泰料理，協助緬甸難民的社會企業，可找附近葷食餐廳分開吃', type: 'food', link: 'Free Bird Cafe, Chiang Mai' },
                     { time: '14:00', item: 'Check in: เชียงใหม่ตำบล ท่าศาลา', notes: '市區住宿，若要游泳需帶泳衣', type: 'stay' },
                     { time: '15:00', item: '分組行動', notes: '叢林飛索/清邁夜間動物園 (擇一)', type: 'activity' },
-                    { time: '18:00', item: '晚餐: 長康路夜市', notes: '享受熱鬧市集小吃', type: 'food', link: 'Chiang Mai Night Bazaar' },
+                    { time: '18:00', item: '晚餐: 長康路夜市', notes: '享受熱鬧當地小吃', type: 'food', link: 'Chiang Mai Night Bazaar' },
                     { time: '20:00', item: '按摩: Lila 麗菈女子監獄泰式按摩', notes: '2hr ~$800，可於klook上預訂較便宜', type: 'activity', link: 'Lila Thai Massage' }
                 ]},
                 { day: 4, date: '11/24 (二)', events: [
-                    { time: '8:00', item: '早餐: villa內自煮', notes: '享受悠閒時光', type: 'food' },
-                    { time: '10:00', item: '逛真心市集 or 買伴手禮', notes: '市區活動', type: 'shop' },
-                    { time: '12:00', item: '午餐: Aum Vegetarian Restaurant', notes: '泰式蔬食料理，這家主廚本來要在他們國家摘星米其林的。口味超級獨特，用了非常多的鷹嘴豆，全部都是生平第一次吃到的口味。可找附近葷食餐廳/villa自煮分開吃', type: 'food', link: 'Aum Vegetarian Restaurant' },
-                    { time: '14:00', item: '逛天燈節: Yi Peng Lantern Festival', notes: '準備觀賞天燈，建議自行叫車前往', type: 'activity' }
+                    { time: '8:00', item: '早餐: villa內自煮', notes: '享受悠閒時光，或是附近找早餐', type: 'food' },
+                    { time: '10:00', item: '逛真心市集 or 買伴手禮', notes: '市區活動，買伴手禮可以到Big C，類似家樂福', type: 'shop' },
+                    { time: '12:00', item: '午餐: Aum Vegetarian Restaurant', notes: '泰式蔬食料理，這家主廚本來要在他們國家摘星米其林的。口味超級獨特，全部都是生平第一次吃到的口味。可找附近葷食餐廳/villa自煮分開吃', type: 'food', link: 'Aum Vegetarian Restaurant' },
+                    { time: '14:00', item: '逛天燈節: Yi Peng Lantern Festival', notes: '準備觀賞天燈，建議穿淺色系衣服與長褲與自行叫車前往，有表演與晚餐，不一定排的到，可以自備一些', type: 'activity' }
                 ]},
                 { day: 5, date: '11/25 (三)', events: [
-                    { time: '8:00', item: '回程: 清邁機場', notes: 'CI852,11:25起飛', type: 'flight' }
+                    { time: '8:00', item: '回程: 清邁機場', notes: 'CI852,11:25起飛，推車機邊託運，約16:00抵台', type: 'flight' }
                 ]}
             ]
         };
