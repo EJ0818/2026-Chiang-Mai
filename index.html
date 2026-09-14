@@ -42,7 +42,6 @@
         .file-input-container input[type="file"] {
             display: none;
         }
-        /* 輔助函數：將 Base64 轉換為 Blob 的函式（用於圖片處理） */
         /* Zootopia 綠色按鈕基礎樣式 */
         .btn-zootopia-primary {
             background-color: #90c74b; /* Nick's Green */
@@ -82,75 +81,142 @@
                 <div class="space-y-6" id="itinerary-container">
                     <!-- 行程卡片將由 JS 填充 -->
                 </div>
-                
             </section>
 
             <!-- 2. GUIDE (深度導覽) -->
             <section id="guide" class="tab-content">
                 <h2 class="text-2xl font-bold mb-4 text-[#4A90E2] border-b-2 border-[#90c74b] pb-2">
-                    <i class="fas fa-map-marked-alt mr-2"></i> 深度導覽
+                    <i class="fas fa-map-marked-alt mr-2"></i> 深度導覽與美饌
                 </h2>
 
-                 <!-- 1. 🐘 Elephant Friend-->
+                <!-- 分類標題：特色美食餐廳 -->
+                <div class="mb-4 text-lg font-bold text-[#4A90E2] flex items-center">
+                    <i class="fas fa-utensils mr-2"></i> 精選早午餐與特色餐廳
+                </div>
+
+                <!-- 餐廳 1: Goodsouls Kitchen -->
+                <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#90c74b]">
+                    <h3 class="text-xl font-bold text-[#6B8E23] mb-2">🥗 Goodsouls Kitchen</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3">
+                        位於舊城區的知名高品質蔬食餐廳，環境舒適明亮且對親子非常友善。餐點種類極為豐富，融合泰北在地風味與西式健康料理，口味細緻不油膩。
+                    </p>
+                    <div class="bg-emerald-50 p-3 rounded-2xl mb-3 text-xs text-emerald-800">
+                        <span class="font-bold"><i class="fas fa-star text-amber-500 mr-1"></i>推薦餐點：</span>
+                        泰北咖哩麵 (Khao Soi)、鮮果優格碗、馬鈴薯捲餅、鳳梨炒飯。
+                    </div>
+                    <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl shadow-inner mb-2">
+                        <iframe width="100%" height="220" 
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=98.9780%2C18.7850%2C98.9880%2C18.7950&amp;layer=mapnik&amp;marker=18.7905%2C98.9830" 
+                            style="border: 1px solid #ddd; width: 100%; height: 220px;" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Goodsouls%20Kitchen,%20Chiang%20Mai" target="_blank" class="text-xs px-3 py-1.5 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-1 shadow-sm"><i class="fas fa-map-marked-alt mr-1"></i> 開啟 Google 地圖</a>
+                </div>
+
+                <!-- 餐廳 2: Free Bird Cafe -->
+                <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#90c74b]">
+                    <h3 class="text-xl font-bold text-[#6B8E23] mb-2">☕ Free Bird Cafe - 早午餐與公益</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3">
+                        不僅是一間極具特色的有機早午餐咖啡館，更是支援「泰緬邊境難民援助計畫」的社會企業。全店收益全數投入公益，店內還設有二手選物店 (The Free Bird Shop)，氛圍溫馨且充滿人文關懷。
+                    </p>
+                    <div class="bg-emerald-50 p-3 rounded-2xl mb-3 text-xs text-emerald-800">
+                        <span class="font-bold"><i class="fas fa-star text-amber-500 mr-1"></i>推薦餐點：</span>
+                        緬甸茶葉沙拉 (Tea Leaf Salad)、植物奶燕麥拿鐵、緬甸特色咖哩飯、手作蔬食塔可。
+                    </div>
+                    <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl shadow-inner mb-2">
+                        <iframe width="100%" height="220" 
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=98.9750%2C18.7900%2C98.9850%2C18.8000&amp;layer=mapnik&amp;marker=18.7960%2C98.9800" 
+                            style="border: 1px solid #ddd; width: 100%; height: 220px;" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Free%20Bird%20Cafe,%20Chiang%20Mai" target="_blank" class="text-xs px-3 py-1.5 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-1 shadow-sm"><i class="fas fa-map-marked-alt mr-1"></i> 開啟 Google 地圖</a>
+                </div>
+
+                <!-- 餐廳 3: Reform Kafe -->
+                <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#90c74b]">
+                    <h3 class="text-xl font-bold text-[#6B8E23] mb-2">🌿 Reform Kafe</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3">
+                        隱身於綠意盎然的花園民宿庭院內，用餐環境猶如花園森林秘境。餐點以全天然原型食物製作，調味層次豐富，非常適合在陽光灑落的午後帶著小朋友享受悠閒的午餐時光。
+                    </p>
+                    <div class="bg-emerald-50 p-3 rounded-2xl mb-3 text-xs text-emerald-800">
+                        <span class="font-bold"><i class="fas fa-star text-amber-500 mr-1"></i>推薦餐點：</span>
+                        新推出蔬食漢堡系列、泰式炒河粉 (Pad Thai)、特調草本氣泡飲、泰式青木瓜沙拉。
+                    </div>
+                    <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl shadow-inner mb-2">
+                        <iframe width="100%" height="220" 
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=98.9760%2C18.7840%2C98.9860%2C18.7940&amp;layer=mapnik&amp;marker=18.7890%2C98.9810" 
+                            style="border: 1px solid #ddd; width: 100%; height: 220px;" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Reform%20Kafe,%20Chiang%20Mai" target="_blank" class="text-xs px-3 py-1.5 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-1 shadow-sm"><i class="fas fa-map-marked-alt mr-1"></i> 開啟 Google 地圖</a>
+                </div>
+
+                <!-- 餐廳 4: Aum Vegetarian Restaurant -->
+                <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#90c74b]">
+                    <h3 class="text-xl font-bold text-[#6B8E23] mb-2">🍲 Aum Vegetarian Restaurant</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3">
+                        清邁深具歷史的經典蔬食老店，獨特的調味風格令許多饕客讚不絕口。主廚對食材搭配極具創意，呈現出許多在外少見的驚豔口味，是探索道地泰式蔬食不可錯過的據點。
+                    </p>
+                    <div class="bg-emerald-50 p-3 rounded-2xl mb-3 text-xs text-emerald-800">
+                        <span class="font-bold"><i class="fas fa-star text-amber-500 mr-1"></i>推薦餐點：</span>
+                        手作壽司卷、泰式香草炸豆腐、濃郁綠咖哩、糙米特調餐碗。
+                    </div>
+                    <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl shadow-inner mb-2">
+                        <iframe width="100%" height="220" 
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=98.9820%2C18.7800%2C98.9920%2C18.7900&amp;layer=mapnik&amp;marker=18.7850%2C98.9870" 
+                            style="border: 1px solid #ddd; width: 100%; height: 220px;" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Aum%20Vegetarian%20Restaurant,%20Chiang%20Mai" target="_blank" class="text-xs px-3 py-1.5 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-1 shadow-sm"><i class="fas fa-map-marked-alt mr-1"></i> 開啟 Google 地圖</a>
+                </div>
+
+                <hr class="my-6 border-gray-200">
+
+                <!-- 分類標題：熱門景點與活動 -->
+                <div class="mb-4 text-lg font-bold text-[#4A90E2] flex items-center">
+                    <i class="fas fa-compass mr-2"></i> 熱門景點與活動指南
+                </div>
+
+                <!-- 景點 1: Elephant Friend -->
                 <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#F7D754]">
                     <h3 class="text-xl font-bold text-[#6B8E23] mb-3">🐘 Elephant Friend 住宿與體驗</h3>
                     <p class="text-sm text-gray-700 leading-relaxed mb-4">
-                    Elephant Friend 位於清邁郊區，提供一個與大象近距離接觸的友好環境。這裡不是傳統的觀光營地，而是專注於大象福祉的保護區。我們的「一日套裝行程」包含了溫和的大象洗澡與餵食，以及充滿自然氣息的竹筏漂流和瀑布野餐。對於家庭旅遊來說，這是一個難得的、富有教育意義的體驗。
+                        專注於大象福祉的友善保護區。一日套裝包含大象餵食、洗澡、自然竹筏漂流與瀑布野餐。山區早晨可預約「大象 Morning Call」，大象會到房間陽台與大家互動拍照，非常適合幼童建立自然共融體驗。
                     </p>
-                    <p class="text-sm font-semibold text-gray-500 mt-2">冷知識：成年大象每天需要攝取約 150 公斤的食物！</p>
-                
-                    <h4 class="text-lg font-bold mt-4 mb-2">地圖導覽 (Elephant friend)</h4>
-                    <!-- OpenStreetMap iframe，使用大致的清邁北邊山區座標 -->
-                    <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl shadow-inner">
-                        <iframe width="100%" height="300" 
-                            src="https://www.openstreetmap.org/export/embed.html?bbox=98.80%2C18.87%2C98.90%2C18.97&amp;layer=mapnik&amp;marker=18.92%2C98.85" 
-                            style="border: 1px solid black; width: 100%; height: 100%;" allowfullscreen>
-                        </iframe>
-                    </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Elephant%20Friends,%20Chiang%20Mai,%20Thailand" target="_blank" class="text-sm px-3 py-1 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-2"><i class="fas fa-map-marked-alt mr-1"></i> 搜尋地圖</a>
+                    <p class="text-xs font-semibold text-amber-600 bg-amber-50 p-2.5 rounded-xl border border-amber-200">💡 小提醒：山區蚊蟲較多，請備妥幼兒專用防蚊液；參加水上活動建議多備一套替換衣物與防滑水鞋。</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Elephant%20Friends,%20Chiang%20Mai,%20Thailand" target="_blank" class="text-xs px-3 py-1.5 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-3 shadow-sm"><i class="fas fa-map-marked-alt mr-1"></i> 搜尋 Google 地圖</a>
                 </div>
-                
-                <!-- 2. ☕ Free Bird Cafe  -->
-            <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#F7D754]">
-                <h3 class="text-xl font-bold text-[#6B8E23] mb-3">☕ Free Bird Cafe - 早午餐與公益</h3>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
-                    Free Bird Cafe 不僅是一間提供美味素食（泰式、緬甸式、西式）的咖啡館，更是一間社會企業。他們將所有收益用於支持「泰緬邊境難民援助計畫」。
-                    在這裡用餐，您不僅能享受健康的餐點，還能支持其經營的二手商店 (The Free Bird Shop)，為緬甸撣邦移民和難民提供語言和生活技能培訓。是清邁舊城區內極具意義的早午餐首選。
-                </p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Free%20Bird%20Cafe,%20Chiang%20Mai" target="_blank" class="text-sm px-3 py-1 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-2"><i class="fas fa-map-marked-alt mr-1"></i> 搜尋地圖</a>
-              </div>
 
-                <!-- 3. 🦒 清邁夜間動物園 (Chiang Mai Night Safari) -->
+                <!-- 景點 2: Chiang Mai Night Safari -->
                 <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#F7D754]">
                     <h3 class="text-xl font-bold text-[#6B8E23] mb-3">🦒 清邁夜間動物園 (Chiang Mai Night Safari)</h3>
                     <p class="text-sm text-gray-700 leading-relaxed mb-4">
-                        清邁夜間動物園是東南亞最大的夜間野生動物園之一，提供獨特的體驗：搭乘遊園車在夜間近距離觀察野生動物。
-                        它分為三個區域：徒步區、南區和北區。南區和北區需要搭乘開放式電車，才能看到鹿、長頸鹿、犀牛等動物在夜間的活動。是一個適合全家大小的夜間活動選擇。
+                        東南亞最大夜間動物園之一。園區分為徒步區與南/北車行區。搭乘開放式電車時，能近距離觀察長頸鹿、斑馬與羚羊等夜間活躍動物，對 3 歲小寶來說極具震撼力與趣味。
                     </p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Chiang%20Mai%20Night%20Safari" target="_blank" class="text-sm px-3 py-1 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-2"><i class="fas fa-map-marked-alt mr-1"></i> 搜尋地圖</a>
+                    <p class="text-xs font-semibold text-amber-600 bg-amber-50 p-2.5 rounded-xl border border-amber-200">💡 最新狀況：建議傍晚 16:30 前抵達先逛徒步區，避開熱門時段遊園車的排隊人潮。推車可全程隨行。</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Chiang%20Mai%20Night%20Safari" target="_blank" class="text-xs px-3 py-1.5 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-3 shadow-sm"><i class="fas fa-map-marked-alt mr-1"></i> 搜尋 Google 地圖</a>
                 </div>
-                
-                <!-- 4. 🧺 真心市集 (Jing Jai Market) -->
+
+                <!-- 景點 3: Jing Jai Market -->
                 <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#F7D754]">
-                    <h3 class="text-xl font-bold text-[#6B8E23] mb-3">🧺 真心市集 (Jing Jai Market) - 文創與農產</h3>
+                    <h3 class="text-xl font-bold text-[#6B8E23] mb-3">🧺 真心市集 (Jing Jai Market)</h3>
                     <p class="text-sm text-gray-700 leading-relaxed mb-4">
-                        真心市集 (Jing Jai Market)，通常在週末早上與平日開放，是清邁最受歡迎的文創和有機農產品市場。
-                        它提供了與傳統夜市不同的氛圍，以販售高品質的有機蔬菜、手工藝品、設計師服飾和獨立咖啡為主。平日多為固定商店(有機產品)與咖啡店。
+                        清邁最具質感的文創與有機農產市集。環境乾淨寬敞、綠樹成蔭，設有許多高質感獨立咖啡店、手工藝品攤位與有機食品超市。
                     </p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Jing%20Jai%20Market,%20Chiang%20Mai" target="_blank" class="text-sm px-3 py-1 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-2"><i class="fas fa-map-marked-alt mr-1"></i> 搜尋地圖</a>
+                    <p class="text-xs font-semibold text-amber-600 bg-amber-50 p-2.5 rounded-xl border border-amber-200">💡 最新狀況：週末（六日）清晨至中午為最熱鬧的手作露天市集；平日則為固定店家與 Good Eats 餐廳營運。</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jing%20Jai%20Market,%20Chiang%20Mai" target="_blank" class="text-xs px-3 py-1.5 bg-amber-500 text-white rounded-full hover:bg-amber-600 inline-block mt-3 shadow-sm"><i class="fas fa-map-marked-alt mr-1"></i> 搜尋 Google 地圖</a>
                 </div>
-    
-            
-                <!-- 5. 🏮 清邁天燈節 (Yi Peng) -->
+
+                <!-- 景點 4: Yi Peng Lantern Festival -->
                 <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#F7D754]">
                     <h3 class="text-xl font-bold text-[#6B8E23] mb-3">🏮 清邁天燈節 (Yi Peng)</h3>
                     <p class="text-sm text-gray-700 leading-relaxed mb-4">
-                        天燈節是清邁最具代表性的活動之一，建議穿淺色系衣服與能踩泥巴的鞋子前往，並自備腳架/雨傘，人潮眾多，建議提前行動。通常在泰國的十二月滿月舉行。當成千上萬的孔明燈同時升空，那份壯觀與浪漫令人難忘。我們的行程正好能參與其中，請務必準備好相機！
+                        清邁最具代表性的傳統節慶。成千上萬天燈同時升空的畫面無比震撼。活動包含傳統舞蹈表演、祈福儀式與特色晚餐。
                     </p>
-                    <p class="text-sm font-semibold text-gray-500 mt-2">注意事項：放天燈通常需要支付門票或場地費。請注意風向並遵守工作人員指示。</p>
+                    <p class="text-xs font-semibold text-amber-600 bg-amber-50 p-2.5 rounded-xl border border-amber-200">💡 最新狀況：天燈節周邊交通極度擁塞，請務必預留足夠車程；建議穿著淺色系服裝與便鞋，並隨身攜帶雨具及小朋友防蚊用品。</p>
                 </div>
                 
-        </section>
+            </section>
             
             <!-- 3. WALLET (記帳與匯率) -->
             <section id="wallet" class="tab-content">
@@ -159,7 +225,6 @@
                 </h2>
                 
                 <!-- 匯率計算機 -->
-                <!-- 若更改匯率，請更新129行與284行! -->
                 <div class="bg-[#eaf1f7] p-4 rounded-2xl shadow-inner mb-6">
                     <h3 class="text-xl font-bold text-[#4A90E2] mb-3">即時匯率換算</h3>
                     <p class="text-xs text-gray-500 mb-2">匯率設定：1 THB (泰銖) ≈ 1 TWD (台幣)</p>
@@ -180,16 +245,15 @@
                         <input type="text" id="expenseItem" placeholder="品項名稱 (e.g., 午餐)" required
                                class="w-full p-3 border rounded-xl focus:border-[#4A90E2]">
                         <input type="number" id="expenseAmount" placeholder="泰銖金額 (THB)" required
-                               class="w-full p-3 border rounded-xl focus:border-[#4A90E2]" min="0">
+                               class="w-full p-3 border rounded-xl focus:border-[#4A90E2]" min="0" step="any">
                         
                         <!-- 拍照/上傳按鈕 -->
                         <div class="file-input-container">
-                            <label for="expensePhoto" class="btn-zootopia-primary cursor-pointer text-sm">
+                            <label for="expensePhoto" class="btn-zootopia-primary cursor-pointer text-sm inline-block">
                                 <i class="fas fa-camera mr-2"></i> 拍照 / 上傳收據
                             </label>
                             <input type="file" id="expensePhoto" accept="image/*" capture="camera">
                             <span id="photoStatus" class="ml-3 text-sm text-gray-500">未選取圖片</span>
-                            <canvas id="photoCanvas" style="display: none;"></canvas>
                         </div>
 
                         <button type="submit" class="btn-zootopia-primary w-full mt-3">
@@ -229,7 +293,7 @@
                         <i class="fas fa-save mr-2"></i> 儲存備忘錄
                     </button>
 
-                    <div id="memoPreview" class="mt-4 p-3 bg-[#eaf1f7] rounded-xl text-sm whitespace-pre-wrap">
+                    <div id="memoPreview" class="mt-4 p-3 bg-[#eaf1f7] rounded-xl text-sm whitespace-pre-wrap break-all">
                         <!-- Memo preview will be shown here -->
                     </div>
                 </div>
@@ -244,7 +308,7 @@
                 <!-- 資訊卡片：天氣 -->
                 <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#90c74b]">
                     <h3 class="text-xl font-bold text-[#6B8E23] mb-3"><i class="fas fa-cloud-sun-rain mr-2"></i> 當地天氣</h3>
-                    <p class="text-sm mb-3">清邁 11 月底通常為涼季，氣候宜人，早晚溫差大，需備薄外套。</p>
+                    <p class="text-sm mb-3">清邁 11 月底通常為涼季，氣候宜人，早晚溫差較大，建議攜帶薄外套。</p>
                     <a href="https://www.tmd.go.th/en" target="_blank" class="btn-zootopia-primary inline-block text-xs">
                         查看泰國氣象局預報
                     </a>
@@ -266,9 +330,9 @@
                     <h3 class="text-xl font-bold text-[#6B8E23] mb-3"><i class="fas fa-triangle-exclamation mr-2"></i> 旅遊禁忌與注意事項</h3>
                     <ul class="text-sm list-disc pl-5 space-y-2">
                         <li>請勿觸摸他人頭部 (視為身體最神聖的部位)。</li>
-                        <li>女性不可碰觸僧侶，即使是遞東西也要透過第三方。</li>
-                        <li>對國王和皇室保持尊敬，不要評論或做出不敬手勢。</li>
-                        <li>出入境禁帶肉製品、新鮮蔬果及特定藥品。</li>
+                        <li>女性不可碰觸僧侶，遞東西時需透過男性或放置於布上。</li>
+                        <li>對國王與皇室保持尊敬，切勿隨意評論。</li>
+                        <li>出入境泰國禁帶肉製品、新鮮蔬果及特定未申報藥品。</li>
                     </ul>
                 </div>
             </section>
@@ -301,8 +365,8 @@
             </div>
         </nav>
         
-        <!-- 圖片壓縮後的提示訊息 (非警示框) -->
-        <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 p-3 bg-gray-800 text-white rounded-xl shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none z-50">
+        <!-- 提示訊息 Toast -->
+        <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 p-3 bg-gray-800 text-white rounded-xl shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 text-sm">
             訊息提示
         </div>
 
@@ -321,7 +385,7 @@
         
         let expenses = []; // 儲存記帳資料
 
-        // --- 旅遊行程資料 (硬編碼) ---
+        // --- 旅遊行程資料 ---
         const TRAVEL_DATA = {
             flights: [
                 { id: 'out', date: '2026/11/21', flight: 'CI851', from: 'TPE (桃園)', to: 'CNX (清邁)', time: '10:30 抵達' },
@@ -329,7 +393,7 @@
             ],
             accommodations: [
                 { date: '11/21 - 11/23', name: '🐘 Elephant friend', notes: '山區住宿，親近大象，注意防蚊' },
-                { date: '11/23 - 11/25', name: '🏠 The Astra sky river', notes: '市區住宿，方便逛街與夜市' }
+                { date: '11/23 - 11/25', name: '🏠 Chiang Mai Colonial House', notes: '市區住宿，方便逛街與夜市' }
             ],
             checklist: [
                 { category: '成人', item: '‼️檢查‼️：護照效期/泰國數位入境卡/每家庭現金四萬(入境規定)/個人照片兩張/身分證影本', checked: false },
@@ -353,10 +417,10 @@
             ],
             itinerary: [
                 { day: 1, date: '11/21 (六)', events: [
-                    { time: '6:00', item: '出發: 桃園機場', notes: 'CI851，7:20起飛，推車機邊托運', type: 'flight' },
+                    { time: '6:00', item: '出發: 桃園機場', notes: 'CI851，7:20起飛，推車機邊託運', type: 'flight' },
                     { time: '10:30', item: '抵達: 清邁機場', notes: '取行李與推車', type: 'event' },
                     { time: '11:00', item: '搭麵包車: 與司機會合', notes: '前往九號門、通知旅行社', type: 'event' },
-                    { time: '12:00', item: '午餐：Goodsouls Kitchen', notes: '泰北蔬食料理，推薦優格碗, 馬鈴薯捲餅, 咖喱麵, 鳳梨炒飯，*離開前可叫Grab bike到Mango sticky rice 50baht，據說是全清邁最好吃的芒果糯米飯 *葷食可分開吃', type: 'food', link: 'Goodsouls Kitchen, Chiang Mai' },
+                    { time: '12:00', item: '午餐：Goodsouls Kitchen', notes: '泰北蔬食料理，推薦優格碗, 馬鈴薯捲餅, 咖哩麵, 鳳梨炒飯，*離開前可叫Grab bike到Mango sticky rice 50baht，據說是全清邁最好吃的芒果糯米飯 *葷食可分開吃', type: 'food', link: 'Goodsouls Kitchen, Chiang Mai' },
                     { time: '14:00', item: '採買補給品: Rimping Supermarket (Maya)', notes: '採買零食飲用水for山上住宿，有水果、麵包、食材，類似Jason', type: 'shop', link: 'Rimping Supermarket Maya' },
                     { time: '18:00', item: 'Check in: Elephant friend', notes: '山區住宿，注意蚊蟲', type: 'stay' }
                 ]},
@@ -369,7 +433,7 @@
                     { time: '8:00', item: '早餐 & Check out', notes: '10點左右離開山區', type: 'stay' },
                     { time: '11:00', item: '採買補給品: Rimping Supermarket (Maya)', notes: '再次採買for 自煮', type: 'shop', link: 'Rimping Supermarket Maya' },
                     { time: '13:00', item: '午餐: Free Bird Cafe', notes: '緬泰料理，協助緬甸難民的社會企業，葷食可分開吃', type: 'food', link: 'Free Bird Cafe, Chiang Mai' },
-                    { time: '14:00', item: 'Check in: The Astra sky river', notes: '米花家住宿，有游泳池，地址: Changklan Road, Tambon Chang Khlan, 清邁府 50100, 泰國', type: 'stay' },
+                    { time: '14:00', item: 'Check in: Chiang Mai Colonial House', notes: '市區住宿，方便逛街與夜市', type: 'stay', link: 'Chiang Mai Colonial House' },
                     { time: '15:00', item: '分組行動', notes: '叢林飛索/清邁夜間動物園 (擇一)', type: 'activity' },
                     { time: '18:00', item: '晚餐: 長康路夜市', notes: '享受熱鬧當地小吃', type: 'food', link: 'Chiang Mai Night Bazaar' },
                     { time: '20:00', item: '按摩: Lila 麗菈女子監獄泰式按摩', notes: '2hr ~$800，可於klook上預訂較便宜', type: 'activity', link: 'Lila Thai Massage' }
@@ -377,7 +441,7 @@
                 { day: 4, date: '11/24 (二)', events: [
                     { time: '8:00', item: '早餐: 內自煮', notes: '享受悠閒時光，或是附近找早餐', type: 'food' },
                     { time: '10:00', item: '逛真心市集 or 買伴手禮', notes: '市區活動，買伴手禮可以到Big C，類似家樂福', type: 'shop' },
-                    { time: '12:00', item: '午餐: Aum Vegetarian Restaurant', notes: '泰式蔬食料理，這家主廚本來要在他們國家摘星米其林的，口味超級獨特，全部都是生平第一次吃到的口味。*葷食可分開吃', type: 'food', link: 'Aum Vegetarian Restaurant' },
+                    { time: '12:00', item: '午餐: Reform Kafe', notes: '花園庭園風格植物料理，全原型食物調味極佳，適合全家放鬆享用', type: 'food', link: 'Reform Kafe, Chiang Mai' },
                     { time: '14:00', item: '逛天燈節: Yi Peng Lantern Festival', notes: '準備觀賞天燈，建議穿淺色系衣服與長褲與自行叫車前往，有表演與晚餐，不一定排的到，可以自備一些', type: 'activity' }
                 ]},
                 { day: 5, date: '11/25 (三)', events: [
@@ -388,10 +452,6 @@
 
         // --- 核心工具函式 ---
 
-        /**
-         * 顯示 Toast 提示訊息
-         * @param {string} message 
-         */
         function showToast(message) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
@@ -401,19 +461,12 @@
             }, 3000);
         }
 
-        /**
-         * 切換分頁
-         * @param {string} tabId 要切換到的分頁 ID
-         */
         function switchTab(tabId) {
-            // 隱藏所有內容
             document.querySelectorAll('.tab-content').forEach(section => {
                 section.classList.remove('active');
             });
-            // 顯示目標內容
             document.getElementById(tabId).classList.add('active');
 
-            // 更新導航列樣式
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 const isCurrent = btn.getAttribute('data-tab') === tabId;
                 btn.classList.toggle('text-[#4A90E2]', isCurrent);
@@ -421,14 +474,9 @@
                 btn.classList.toggle('font-bold', isCurrent);
                 btn.classList.toggle('bg-blue-50', isCurrent);
             });
-            window.scrollTo(0, 0); // 切換時滾動到頂部
+            window.scrollTo(0, 0);
         }
 
-        /**
-         * 儲存資料到 LocalStorage
-         * @param {string} key 
-         * @param {any} data 
-         */
         function saveToStorage(key, data) {
             try {
                 localStorage.setItem(key, JSON.stringify(data));
@@ -437,12 +485,6 @@
             }
         }
 
-        /**
-         * 從 LocalStorage 載入資料
-         * @param {string} key 
-         * @param {any} defaultValue 
-         * @returns {any}
-         */
         function loadFromStorage(key, defaultValue) {
             try {
                 const data = localStorage.getItem(key);
@@ -453,13 +495,8 @@
             }
         }
 
-        // --- 1. PLAN 模組邏輯 ---
+        // --- PLAN 模組邏輯 ---
 
-        /**
-         * 取得對應行程類型的圖示
-         * @param {string} type 
-         * @returns {string} Tailwind 顏色 class
-         */
         function getTypeIcon(type) {
             switch(type) {
                 case 'flight': return { icon: 'plane-departure', color: 'text-indigo-500' };
@@ -471,9 +508,6 @@
             }
         }
 
-        /**
-         * 渲染行程表
-         */
         function renderItinerary() {
             const container = document.getElementById('itinerary-container');
             let html = `
@@ -504,10 +538,10 @@
                                             <p class="text-sm text-gray-500">${event.notes}</p>
                                             ${event.link ? `
                                                 <div class="mt-2 space-x-2">
-                                                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.link)}" target="_blank" class="text-xs text-white bg-red-500 hover:bg-red-600 rounded-full px-3 py-1 shadow-md">
+                                                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.link)}" target="_blank" class="text-xs text-white bg-red-500 hover:bg-red-600 rounded-full px-3 py-1 shadow-md inline-block">
                                                         <i class="fas fa-location-dot mr-1"></i> Google Maps
                                                     </a>
-                                                    <a href="https://www.google.com/search?q=${encodeURIComponent(event.link + ' 食記')}" target="_blank" class="text-xs text-white bg-orange-400 hover:bg-orange-500 rounded-full px-3 py-1 shadow-md">
+                                                    <a href="https://www.google.com/search?q=${encodeURIComponent(event.link + ' 食記')}" target="_blank" class="text-xs text-white bg-orange-400 hover:bg-orange-500 rounded-full px-3 py-1 shadow-md inline-block">
                                                         <i class="fas fa-book-open-reader mr-1"></i> 查看食記
                                                     </a>
                                                 </div>
@@ -523,11 +557,8 @@
             container.innerHTML = html;
         }
 
-        // --- 3. WALLET 模組邏輯 ---
+        // --- WALLET 模組邏輯 ---
 
-        /**
-         * 匯率計算機邏輯
-         */
         function calculateCurrency() {
             const input = document.getElementById('calcInput').value;
             const resultDiv = document.getElementById('calcResult');
@@ -538,7 +569,6 @@
             }
 
             try {
-                // 安全地執行算式
                 const amountTHB = Function('return ' + input)();
 
                 if (isNaN(amountTHB) || amountTHB === null) {
@@ -559,11 +589,6 @@
             }
         }
 
-        /**
-         * 壓縮並轉換圖片為 Base64 縮圖 (Canvas)
-         * @param {File} file 
-         * @returns {Promise<string>} Base64 圖片資料
-         */
         function compressImage(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -571,7 +596,7 @@
                     const img = new Image();
                     img.onload = function() {
                         const canvas = document.createElement('canvas');
-                        const MAX_WIDTH = 200; // 縮圖最大寬度
+                        const MAX_WIDTH = 200;
                         let width = img.width;
                         let height = img.height;
 
@@ -585,7 +610,6 @@
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, width, height);
                         
-                        // 轉換為 Base64 (JPEG, 壓縮品質 70%)
                         resolve(canvas.toDataURL('image/jpeg', 0.7));
                     };
                     img.onerror = reject;
@@ -596,10 +620,6 @@
             });
         }
 
-        /**
-         * 處理記帳表單提交
-         * @param {Event} e 
-         */
         async function handleExpenseSubmit(e) {
             e.preventDefault();
 
@@ -637,28 +657,32 @@
             saveToStorage(STORAGE_KEY.EXPENSES, expenses);
             renderExpenseList();
 
-            // 重設表單
             e.target.reset();
             document.getElementById('photoStatus').textContent = '未選取圖片';
         }
 
-        /**
-         * 渲染記帳列表
-         */
         function renderExpenseList() {
             const listContainer = document.getElementById('expenseList');
-            let totalTHB = 0;
-            let totalTWD = 0;
+            
+            // 移除舊有的總計標籤以防重複
+            const oldTotal = document.getElementById('expenseTotal');
+            if (oldTotal) oldTotal.remove();
 
             if (expenses.length === 0) {
                 listContainer.innerHTML = `<p class="text-center text-gray-400 p-4">尚無消費記錄。</p>`;
                 return;
             }
 
-            const listHTML = expenses.reverse().map(exp => {
+            let totalTHB = 0;
+            let totalTWD = 0;
+
+            expenses.forEach(exp => {
                 totalTHB += parseFloat(exp.amountTHB);
                 totalTWD += parseFloat(exp.amountTWD);
+            });
 
+            // 採用淺拷貝 [...expenses].reverse()，避免改動原陣列
+            const listHTML = [...expenses].reverse().map(exp => {
                 return `
                     <div class="flex items-center bg-gray-50 p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                         ${exp.photoBase64 ? `
@@ -685,23 +709,14 @@
 
             listContainer.innerHTML = listHTML;
 
-            // 總計顯示在列表上方
             listContainer.insertAdjacentHTML('beforebegin', `
                 <div id="expenseTotal" class="p-3 mb-4 bg-[#F7D754] text-gray-800 rounded-xl shadow-md font-extrabold text-center">
                     <p class="text-sm">總計消費:</p>
                     <p class="text-xl">${totalTHB.toFixed(2)} THB ≈ ${totalTWD.toFixed(2)} TWD</p>
                 </div>
             `);
-            
-            // 移除舊的總計以防重複
-            const oldTotal = document.getElementById('expenseTotal');
-            if (oldTotal) oldTotal.remove();
         }
 
-        /**
-         * 刪除單筆記帳記錄
-         * @param {number} id 
-         */
         function deleteExpense(id) {
             expenses = expenses.filter(exp => exp.id !== id);
             saveToStorage(STORAGE_KEY.EXPENSES, expenses);
@@ -709,7 +724,6 @@
             showToast("記錄已刪除。");
         }
         
-        // 監聽圖片選擇事件，更新狀態文字
         document.addEventListener('DOMContentLoaded', () => {
             const photoInput = document.getElementById('expensePhoto');
             if(photoInput) {
@@ -724,11 +738,8 @@
             }
         });
 
-        // --- 4. LISTS 模組邏輯 ---
+        // --- LISTS 模組邏輯 ---
 
-        /**
-         * 渲染並初始化 CheckList
-         */
         function renderChecklist() {
             let listData = loadFromStorage(STORAGE_KEY.CHECKLIST, TRAVEL_DATA.checklist);
             const container = document.getElementById('checklistContainer');
@@ -752,20 +763,13 @@
             container.innerHTML = html;
         }
 
-        /**
-         * 切換 CheckList 狀態並儲存
-         * @param {number} index 
-         */
         function toggleChecklistItem(index) {
             let listData = loadFromStorage(STORAGE_KEY.CHECKLIST, TRAVEL_DATA.checklist);
             listData[index].checked = !listData[index].checked;
             saveToStorage(STORAGE_KEY.CHECKLIST, listData);
-            renderChecklist(); // 重新渲染以更新樣式
+            renderChecklist();
         }
 
-        /**
-         * 儲存備忘錄
-         */
         function saveMemo() {
             const textarea = document.getElementById('memoTextarea');
             const text = textarea.value;
@@ -774,16 +778,10 @@
             showToast("備忘錄已儲存！");
         }
 
-        /**
-         * 渲染備忘錄預覽並轉換網址
-         * @param {string} text 
-         */
         function renderMemoPreview(text) {
             const previewDiv = document.getElementById('memoPreview');
-            // 正則表達式匹配 URL
             const urlRegex = /(https?:\/\/[^\s]+)/g;
             
-            // 將純文字內容分行處理，並將 URL 替換為按鈕
             const processedText = text.replace(urlRegex, (url) => {
                 return `<a href="${url}" target="_blank" class="inline-block mt-1 text-xs text-white bg-[#4A90E2] hover:bg-[#3d7bd4] rounded-full px-3 py-1 shadow-md">
                             <i class="fas fa-link mr-1"></i> ${url.length > 30 ? url.substring(0, 30) + '...' : url}
@@ -793,9 +791,6 @@
             previewDiv.innerHTML = processedText || '<p class="text-center text-gray-400">尚無備忘錄內容。</p>';
         }
 
-        /**
-         * 從 LocalStorage 載入備忘錄
-         */
         function loadMemo() {
             const text = loadFromStorage(STORAGE_KEY.MEMO, '');
             document.getElementById('memoTextarea').value = text;
@@ -805,23 +800,15 @@
         // --- 初始化全部功能 ---
 
         window.onload = function() {
-            // 1. 確保第一個分頁啟動
             switchTab('plan'); 
-
-            // 2. 渲染 PLAN 模組
             renderItinerary();
-
-            // 3. 初始化 WALLET 模組
             expenses = loadFromStorage(STORAGE_KEY.EXPENSES, []);
             renderExpenseList();
             document.getElementById('expenseForm').addEventListener('submit', handleExpenseSubmit);
-
-            // 4. 初始化 LISTS 模組
             renderChecklist();
             loadMemo();
         };
 
-        
     </script>
 </body>
 </html>
