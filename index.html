@@ -248,6 +248,25 @@
                         <a href="https://www.google.com/maps/search/?api=1&query=Big+C+Chiang+Mai" target="_blank" class="text-xs px-3 py-1.5 bg-amber-500 text-white rounded-full hover:bg-amber-600 shadow-sm"><i class="fas fa-map-marked-alt mr-1"></i> Google 地圖</a>
                     </div>
                 </div>
+
+                <!-- Meechok Plaza -->
+                <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#90c74b]">
+                    <h3 class="text-xl font-bold text-[#6B8E23] mb-2"><i class="fas fa-store mr-2"></i> Meechok Plaza 商圈</h3>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3">
+                        距離市區住宿僅約 5-8 分鐘車程。聚集了 Rimping 超市、Tops 超市與 7-11，是前往夜間動物園前，快速備妥小寶點心與熟食的最佳中繼站。
+                    </p>
+                    <div class="bg-emerald-50 p-3 rounded-2xl mb-3 text-xs text-emerald-800">
+                        <span class="font-bold"><i class="fas fa-star text-amber-500 mr-1"></i>補給推薦：</span><br>
+                        <ul class="list-disc pl-4 mt-1 space-y-1">
+                            <li>7-11 熱壓吐司與海綿小麵包 (動物園墊胃神器)</li>
+                            <li>明治 (Meiji) 鮮奶或保久乳</li>
+                            <li>超市新鮮切片水果與無添加果汁</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Meechok+Plaza" target="_blank" class="text-xs px-3 py-1.5 bg-amber-500 text-white rounded-full hover:bg-amber-600 shadow-sm"><i class="fas fa-map-marked-alt mr-1"></i> Google 地圖</a>
+                    </div>
+                </div>
             </section>
             
             <!-- 4. WALLET (記帳與匯率) -->
@@ -442,6 +461,7 @@
                 { date: '11/23 - 11/25', name: '🏠 Chiang Mai Colonial House', notes: '市區住宿，方便逛街與夜市' }
             ],
             checklist: [
+                { category: '全家', item: '100%純棉長袖衣褲 (天燈節防飄落火星)', checked: false },
                 { category: '成人', item: '‼️檢查‼️：護照效期/泰國數位入境卡/每家庭現金四萬(入境規定)/個人照片兩張/身分證影本', checked: false },
                 { category: '成人', item: '隨身包：護照/錢包/行充/小衛生紙/小水', checked: false },
                 { category: '成人', item: '充電線/變壓器/轉接頭', checked: false },
@@ -451,6 +471,8 @@
                 { category: '成人', item: '化妝盥洗用品：牙刷/牙膏/洗面乳/沐浴乳/乳液/髮圈/吹風機', checked: false },
                 { category: '成人', item: '備用藥：退燒/止痛/胃藥', checked: false },
                 { category: '成人', item: '髒衣袋數個', checked: false },
+                { category: '寶寶', item: '嬰兒背巾 (天燈節防走失/擁擠必備)', checked: false },
+                { category: '寶寶', item: '幼兒防噪耳罩 (天燈節防鞭炮聲)', checked: false },
                 { category: '寶寶', item: '隨身包：濕紙巾/尿布/備用衣/防蚊液/水/酒精/麵包/玩具', checked: false },
                 { category: '寶寶', item: '衣服六套/睡衣一套', checked: false },
                 { category: '寶寶', item: '盥洗用品：牙刷/牙膏/沐浴乳/乳液/浴巾', checked: false },
@@ -464,35 +486,36 @@
             itinerary: [
                 { day: 1, date: '11/21 (六)', events: [
                     { time: '6:00', item: '出發: 桃園機場', notes: 'CI851，7:20起飛，推車機邊託運。第1航廈A4-A5有巧虎放電區，適合6歲以下幼童，上機前可先消耗體力。', type: 'flight' },
-                    { time: '10:30', item: '抵達: 清邁機場', notes: '取行李與推車', type: 'event' },
-                    { time: '11:00', item: '搭麵包車: 與司機會合', notes: '前往九號門、通知旅行社', type: 'event' },
+                    { time: '10:30', item: '抵達: 清邁機場', notes: '取行李與推車。', type: 'event' },
+                    { time: '11:15', item: '搭麵包車: 與司機會合', notes: '前往九號門、通知旅行社。', type: 'event' },
                     { time: '11:30', item: '換匯: Metro Money Exchange', notes: '建議帶乾淨無破損千元台幣現鈔兌換，務必攜帶護照正本供查驗。', type: 'event' },
-                    { time: '12:00', item: '午餐：Goodsouls Kitchen', notes: '泰北蔬食料理，推薦優格碗, 馬鈴薯捲餅, 咖哩麵, 鳳梨炒飯，*離開前可叫Grab bike到Mango sticky rice 50baht，據說是全清邁最好吃的芒果糯米飯 *葷食可分開吃', type: 'food', link: 'Goodsouls Kitchen, Chiang Mai' },
-                    { time: '14:00', item: '採買: Maya Shopping Center', notes: '(1) Rimping Supermarket: 採買山上所需零食飲料<br>(2) Boots 藥妝店: 採買防蚊與相關備用藥品', type: 'shop', link: 'MAYA Lifestyle Shopping Center' },
-                    { time: '18:00', item: 'Check in: Elephant friend', notes: '山區住宿，注意蚊蟲', type: 'stay' }
+                    { time: '12:00', item: '午餐：Goodsouls Kitchen', notes: '泰北蔬食料理，推薦優格碗, 馬鈴薯捲餅, 咖哩麵, 鳳梨炒飯。', type: 'food', link: 'Goodsouls Kitchen, Chiang Mai' },
+                    { time: '14:00', item: '採買: Maya Shopping Center', notes: '(1) Rimping Supermarket: 採買山上所需零食飲料<br>(2) Boots 藥妝店: 採買防蚊與相關備用藥品。', type: 'shop', link: 'MAYA Lifestyle Shopping Center' },
+                    { time: '16:00', item: '甜點外帶: Mana\'s Mango Sticky Rice', notes: '順路外帶超人氣芒果糯米飯，買完即出發上山。', type: 'food' },
+                    { time: '18:00', item: 'Check in: Elephant friend', notes: '山區住宿，趁天黑前抵達，車程中可讓幼童補眠。注意蚊蟲防護。', type: 'stay' }
                 ]},
                 { day: 2, date: '11/22 (日)', events: [
-                    { time: '8:00', item: '早餐 & Elephant morning call', notes: '山區陽光早餐免費，morning call需付費', type: 'food' },
-                    { time: '10:00', item: '一日套裝行程', notes: '大象洗澡 + 竹筏漂流 + 瀑布野餐', type: 'activity' },
-                    { time: '18:00', item: '晚餐：付費晚餐', notes: '住宿地解決，休息放鬆，更晚一點有酒吧', type: 'food' }
+                    { time: '8:00', item: '早餐 & Elephant morning call', notes: '山區陽光早餐免費，morning call需付費。早晨山區微涼請幫小寶準備薄外套。', type: 'food' },
+                    { time: '10:00', item: '一日套裝行程', notes: '大象洗澡 + 竹筏漂流 + 瀑布野餐。水上活動後易冷，請備妥快乾衣物與大毛巾，竹筏漂流無遮蔽需注意防曬。', type: 'activity' },
+                    { time: '18:00', item: '晚餐：付費晚餐', notes: '住宿地解決，休息放鬆，更晚一點有酒吧。黃昏蚊蟲活躍，出房門前務必噴好幼兒防蚊液。', type: 'food' }
                 ]},
                 { day: 3, date: '11/23 (一)', events: [
-                    { time: '8:00', item: '早餐 & Check out', notes: '10點左右離開山區', type: 'stay' },
-                    // 11:00 採買行程已徹底刪除
-                    { time: '12:30', item: '午餐: 生薑觀光農場', notes: '親子友善農場，可體驗插秧、滑泥巴，餐點提供道地泰北農家菜。', type: 'food', link: 'Ginger Farm Chiang Mai' },
-                    { time: '14:00', item: 'Check in: Chiang Mai Colonial House', notes: '市區住宿，方便逛街與夜市', type: 'stay', link: 'Chiang Mai Colonial House' },
-                    { time: '15:30', item: '清邁夜間動物園', notes: '遊園車無法隨行推車，需統一停放於乘車處。搭乘約一小時期間需將幼童抱在腿上，建議隨身攜帶輕便背巾，並留意夜間行車涼風。', type: 'activity', link: 'Chiang Mai Night Safari' },
-                    { time: '20:00', item: '晚餐: 長康路夜市', notes: '享受熱鬧當地小吃', type: 'food', link: 'Chiang Mai Night Bazaar' },
-                    { time: '22:00', item: '按摩: Lila 麗菈女子監獄泰式按摩', notes: '2hr ~$800，可於klook上預訂較便宜', type: 'activity', link: 'Lila Thai Massage' }
+                    { time: '8:00', item: '早餐 & Check out', notes: '10點左右離開山區。', type: 'stay' },
+                    { time: '12:30', item: '午餐: 生薑觀光農場', notes: '親子友善農場，提供道地泰北農家菜。', type: 'food', link: 'Ginger Farm Chiang Mai' },
+                    { time: '14:00', item: 'Check in: Chiang Mai Colonial House', notes: '市區住宿，安頓行李與稍作休息。', type: 'stay', link: 'Chiang Mai Colonial House' },
+                    { time: '14:30', item: '採買點心: Meechok Plaza', notes: '順路至商圈 (Rimping 或 7-11) 購買熱壓吐司、鮮奶與小麵包，備妥稍後動物園的點心。', type: 'shop', link: 'Meechok Plaza' },
+                    { time: '16:00', item: '清邁夜間動物園', notes: '遊園車無法隨行推車，需統一停放乘車處。搭乘約一小時需將幼童抱在腿上，建議隨身攜帶輕便背巾，並留意夜間行車涼風。', type: 'activity', link: 'Chiang Mai Night Safari' },
+                    { time: '20:00', item: '晚餐: 長康路夜市', notes: '享受熱鬧當地小吃。', type: 'food', link: 'Chiang Mai Night Bazaar' },
+                    { time: '22:00', item: '按摩: Lila 麗菈女子監獄泰式按摩', notes: '2hr ~$800。', type: 'activity', link: 'Lila Thai Massage' }
                 ]},
                 { day: 4, date: '11/24 (二)', events: [
-                    { time: '8:00', item: '早餐: 民宿內自煮', notes: '享受悠閒時光，或是附近找早餐', type: 'food' },
-                    { time: '10:00', item: '逛真心市集 or 買伴手禮', notes: '市區活動，買伴手禮可以到Big C，類似家樂福', type: 'shop' },
+                    { time: '8:00', item: '早餐', notes: '房東提供，享受悠閒時光。', type: 'food' },
+                    { time: '10:00', item: '買伴手禮: Big C', notes: '採買平價零食、泰奶與人氣伴手禮。', type: 'shop', link: 'Big C Chiang Mai' },
                     { time: '12:30', item: '午餐: Ohkajhu Organic Farm', notes: '超人氣有機農場餐廳，餐點份量大，附設大片草皮與兒童遊戲區，適合小寶跑跳。', type: 'food', link: 'สวนผัก โอ้กะจู๋ สาขาสันทราย (Ohkajhu Organic Farm)' },
-                    { time: '14:00', item: '逛天燈節: Yi Peng Lantern Festival', notes: '準備觀賞天燈，建議穿淺色系衣服與長褲與自行叫車前往，有表演與晚餐，不一定排的到，可以自備一些', type: 'activity' }
+                    { time: '16:00', item: '逛天燈節: Yi Peng Lantern Festival', notes: '預留塞車時間提早出發。現場人潮擁擠且有鞭炮聲，請備妥「幼兒防噪耳罩」與「嬰兒背巾」，全家務必穿著「純棉衣物」以防飄落火星。', type: 'activity' }
                 ]},
                 { day: 5, date: '11/25 (三)', events: [
-                    { time: '8:00', item: '回程: 清邁機場', notes: 'CI852,11:25起飛，推車機邊託運，約16:00抵台', type: 'flight' }
+                    { time: '8:00', item: '回程: 清邁機場', notes: 'CI852，11:25起飛，推車機邊託運，約16:00抵台。', type: 'flight' }
                 ]}
             ]
         };
