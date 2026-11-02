@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>清邁行程 💫 </title>
+    <title>清邁行程助理 💫 </title>
     <!-- 載入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 載入 Font Awesome 圖示 -->
@@ -491,7 +491,18 @@
                     { time: '11:30', item: '換匯: Metro Money Exchange', notes: '建議帶乾淨無破損千元台幣現鈔兌換，務必攜帶護照正本供查驗。', type: 'event' },
                     { time: '12:00', item: '午餐：Goodsouls Kitchen', notes: '泰北蔬食料理，推薦優格碗, 馬鈴薯捲餅, 咖哩麵, 鳳梨炒飯。', type: 'food', link: 'Goodsouls Kitchen, Chiang Mai' },
                     { time: '14:00', item: '採買: Maya Shopping Center', notes: '(1) Rimping Supermarket: 採買山上所需零食飲料<br>(2) Boots 藥妝店: 採買防蚊與相關備用藥品。', type: 'shop', link: 'MAYA Lifestyle Shopping Center' },
-                    { time: '16:00', item: '甜點外帶: Mana\'s Mango Sticky Rice', notes: '順路外帶超人氣芒果糯米飯，買完即出發上山。', type: 'food' },
+                    { 
+                        time: '16:00', 
+                        item: "甜點外帶: 芒果糯米飯 (首選 / 備案)", 
+                        notes: '順路外帶超人氣芒果糯米飯，買完即出發上山。若首選售罄則直接前往備案。<br>• <strong>首選 (Option 1)</strong>: Mana\'s Best Mango Sticky Rice<br>• <strong>備案 (Option 2)</strong>: Tuki\'s Mango Sticky Rice (ข้าวเหนียวมะม่วง กำแพงดิน)', 
+                        type: 'food',
+                        customButtons: [
+                            { name: "Mana's Google Maps", url: "https://www.google.com/maps/search/?api=1&query=Mana%27s%20Best%20Mango%20Sticky%20Rice", color: "bg-red-500 hover:bg-red-600", icon: "fa-location-dot" },
+                            { name: "Mana's 食記", url: "https://www.google.com/search?q=Mana%27s+Best+Mango+Sticky+Rice+食記", color: "bg-orange-400 hover:bg-orange-500", icon: "fa-book-open-reader" },
+                            { name: "Tuki's 備案地圖", url: "https://www.google.com/maps/search/?api=1&query=Tuki%27s%20Mango%20Sticky%20Rice%20Chiang%20Mai", color: "bg-red-500 hover:bg-red-600", icon: "fa-location-dot" },
+                            { name: "Tuki's 備案食記", url: "https://www.google.com/search?q=Tuki%27s+Mango+Sticky+Rice+Chiang+Mai+食記", color: "bg-orange-400 hover:bg-orange-500", icon: "fa-book-open-reader" }
+                        ]
+                    },
                     { time: '18:00', item: 'Check in: Elephant friend', notes: '山區住宿，趁天黑前抵達，車程中可讓幼童補眠。注意蚊蟲防護。', type: 'stay' }
                 ]},
                 { day: 2, date: '11/22 (日)', events: [
@@ -606,9 +617,16 @@
                                         <div class="ml-4 pt-1">
                                             <p class="text-sm font-bold text-gray-700">${event.time}</p>
                                             <p class="text-lg font-extrabold text-[#4A90E2]">${event.item}</p>
-                                            <!-- event.notes 中的 <br> 會在此處自然換行 -->
                                             <p class="text-sm text-gray-500">${event.notes}</p>
-                                            ${event.link ? `
+                                            ${event.customButtons ? `
+                                                <div class="mt-2.5 flex flex-wrap gap-2">
+                                                    ${event.customButtons.map(btn => `
+                                                        <a href="${btn.url}" target="_blank" class="text-xs text-white ${btn.color} rounded-full px-3 py-1 shadow-md inline-flex items-center">
+                                                            <i class="fas ${btn.icon} mr-1"></i> ${btn.name}
+                                                        </a>
+                                                    `).join('')}
+                                                </div>
+                                            ` : (event.link ? `
                                                 <div class="mt-2 space-x-2">
                                                     <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.link)}" target="_blank" class="text-xs text-white bg-red-500 hover:bg-red-600 rounded-full px-3 py-1 shadow-md inline-block">
                                                         <i class="fas fa-location-dot mr-1"></i> Google Maps
@@ -619,7 +637,7 @@
                                                     </a>
                                                     ` : ''}
                                                 </div>
-                                            ` : ''}
+                                            ` : '')}
                                         </div>
                                     </div>
                                 `;
