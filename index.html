@@ -163,15 +163,7 @@
                     <p class="text-xs font-semibold text-amber-600 bg-amber-50 p-2.5 rounded-xl border border-amber-200">💡 注意事項：遊園車無法隨行推車，需統一停放乘車處。搭乘約一小時，需將幼童抱在腿上，建議帶背巾並留意夜間行車涼風。</p>
                 </div>
 
-                <!-- 景點 3: Jing Jai Market -->
-                <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#F7D754]">
-                    <h3 class="text-xl font-bold text-[#6B8E23] mb-3">🧺 真心市集 (Jing Jai Market)</h3>
-                    <p class="text-sm text-gray-700 leading-relaxed mb-4">
-                        清邁最具質感的文創與有機農產市集。環境乾淨寬敞、綠樹成蔭，設有許多高質感獨立咖啡店、手工藝品攤位與有機食品超市。
-                    </p>
-                </div>
-
-                <!-- 景點 4: Yi Peng Lantern Festival -->
+                <!-- 景點 3: Yi Peng Lantern Festival -->
                 <div class="bg-white p-5 rounded-3xl shadow-lg mb-6 border-l-4 border-[#F7D754]">
                     <h3 class="text-xl font-bold text-[#6B8E23] mb-3">🏮 清邁天燈節 (Yi Peng)</h3>
                     <p class="text-sm text-gray-700 leading-relaxed mb-4">
@@ -275,10 +267,24 @@
                     <i class="fas fa-wallet mr-2"></i> 記帳與匯率
                 </h2>
                 
+                <!-- 匯率設定 -->
+                <div class="bg-white p-4 rounded-2xl shadow-lg mb-6 border-l-4 border-[#F7D754] flex items-center justify-between">
+                    <div class="flex-grow">
+                        <label for="customExchangeRate" class="text-sm font-bold text-gray-700 block mb-1">自訂匯率設定</label>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-gray-600">1 THB ≈</span>
+                            <input type="number" id="customExchangeRate" step="0.01" min="0.01" class="w-20 p-1.5 border-2 border-[#90c74b] rounded-lg text-sm text-center focus:ring-2 focus:ring-[#F7D754]">
+                            <span class="text-sm text-gray-600">TWD</span>
+                        </div>
+                    </div>
+                    <button onclick="saveExchangeRate()" class="bg-[#90c74b] text-white px-3 py-1.5 rounded-xl shadow-md font-bold text-sm hover:bg-[#7ba940] transition-colors ml-2">
+                        <i class="fas fa-save mr-1"></i> 儲存
+                    </button>
+                </div>
+
                 <!-- 匯率計算機 -->
                 <div class="bg-[#eaf1f7] p-4 rounded-2xl shadow-inner mb-6">
                     <h3 class="text-xl font-bold text-[#4A90E2] mb-3">即時匯率換算</h3>
-                    <p class="text-xs text-gray-500 mb-2">匯率設定：1 THB (泰銖) ≈ 1 TWD (台幣)</p>
                     <input type="text" id="calcInput" placeholder="輸入算式 (e.g., 500+200*3)" 
                            class="w-full p-3 mb-3 border-2 border-[#90c74b] rounded-xl text-lg font-mono focus:ring-2 focus:ring-[#F7D754]">
                     <button onclick="calculateCurrency()" class="btn-zootopia-primary w-full text-lg">
@@ -433,7 +439,7 @@
         </nav>
         
         <!-- 提示訊息 Toast -->
-        <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 p-3 bg-gray-800 text-white rounded-xl shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 text-sm">
+        <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 p-3 bg-gray-800 text-white rounded-xl shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 text-sm whitespace-nowrap">
             訊息提示
         </div>
 
@@ -443,12 +449,13 @@
     <script>
         const APP_ID = 'zootopia-travel-cnxtpe-2026';
         const STORAGE_KEY = {
-            CHECKLIST: `${APP_ID}-checklist`,
+            CHECKLIST: `${APP_ID}-checklist-v2`, // 升級v2以覆蓋舊快取
             MEMO: `${APP_ID}-memo`,
             EXPENSES: `${APP_ID}-expenses`,
+            EXCHANGERATE: `${APP_ID}-exchange-rate`
         };
-        const EXCHANGE_RATE_TWD_PER_THB = 1; 
         
+        let currentExchangeRate = 1;
         let expenses = []; 
 
         const TRAVEL_DATA = {
@@ -461,27 +468,55 @@
                 { date: '11/23 - 11/25', name: '🏠 Chiang Mai Colonial House', notes: '市區住宿，方便逛街與夜市' }
             ],
             checklist: [
-                { category: '全家', item: '100%純棉長袖衣褲 (天燈節防飄落火星)', checked: false },
-                { category: '成人', item: '‼️檢查‼️：護照效期/泰國數位入境卡/每家庭現金四萬(入境規定)/個人照片兩張/身分證影本', checked: false },
-                { category: '成人', item: '隨身包：護照/錢包/行充/小衛生紙/小水', checked: false },
-                { category: '成人', item: '充電線/變壓器/轉接頭', checked: false },
-                { category: '成人', item: '手機腳架', checked: false },
-                { category: '成人', item: '衣服五套/睡衣一套/泳衣一套', checked: false },
-                { category: '成人', item: '拖鞋', checked: false },
-                { category: '成人', item: '化妝盥洗用品：牙刷/牙膏/洗面乳/沐浴乳/乳液/髮圈/吹風機', checked: false },
-                { category: '成人', item: '備用藥：退燒/止痛/胃藥', checked: false },
-                { category: '成人', item: '髒衣袋數個', checked: false },
-                { category: '寶寶', item: '嬰兒背巾 (天燈節防走失/擁擠必備)', checked: false },
-                { category: '寶寶', item: '幼兒防噪耳罩 (天燈節防鞭炮聲)', checked: false },
-                { category: '寶寶', item: '隨身包：濕紙巾/尿布/備用衣/防蚊液/水/酒精/麵包/玩具', checked: false },
-                { category: '寶寶', item: '衣服六套/睡衣一套', checked: false },
-                { category: '寶寶', item: '盥洗用品：牙刷/牙膏/沐浴乳/乳液/浴巾', checked: false },
-                { category: '寶寶', item: '抱抱羊', checked: false },
-                { category: '寶寶', item: '拖鞋', checked: false },
-                { category: '寶寶', item: '小夜燈', checked: false },
-                { category: '寶寶', item: '推車/電風扇', checked: false },
-                { category: '寶寶', item: '奶瓶/奶粉', checked: false },
-                { category: '寶寶', item: '少量玩具', checked: false }
+                { category: '檢查', item: '護照效期', checked: false },
+                { category: '檢查', item: '填寫泰國e-Visa', checked: false },
+                { category: '檢查', item: '選機位 & 特殊餐點', checked: false },
+                { category: '檢查', item: '全家的個人照片*2 & 護照影本', checked: false },
+                { category: '檢查', item: 'E-sim', checked: false },
+                { category: '檢查', item: '米花寶耳機配對ipad', checked: false },
+                { category: '檢查', item: '米花寶看醫生拿備用藥', checked: false },
+                { category: '檢查', item: 'RT麵包', checked: false },
+                
+                { category: '隨身行李 -(登機箱)', item: '護照', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '現金四萬', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '行動電源 (需充飽電)', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '錢包', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '全家的水壺', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '米花寶零食', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '米花寶耳機(需充飽電)', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '清潔用品: 小濕紙巾、酒精、小衛生紙', checked: false },
+                { category: '隨身行李 -(登機箱)', item: 'Ipad (需充飽電)', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '點讀筆&點讀本', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '圍兜、餐具、小碗', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '米花寶備用衣服一套+尿布*2', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '推車', checked: false },
+                { category: '隨身行李 -(登機箱)', item: '4L夾鏈袋*3', checked: false },
+
+                { category: '成人行李', item: '充電線*2', checked: false },
+                { category: '成人行李', item: '變壓器 / 轉接頭', checked: false },
+                { category: '成人行李', item: '每人衣服*5套+睡衣*1套', checked: false },
+                { category: '成人行李', item: '沐浴用品: 沐浴乳、乳液、洗髮精、潤髮乳、牙膏牙刷、洗面乳', checked: false },
+                { category: '成人行李', item: '化妝用品: 湘敏化妝包、卸妝乳、髮圈、髮捲', checked: false },
+                { category: '成人行李', item: '吹風機', checked: false },
+                { category: '成人行李', item: '備用藥: 止痛、胃藥、皮膚藥', checked: false },
+                { category: '成人行李', item: '拖鞋*2', checked: false },
+                { category: '成人行李', item: '薄外套', checked: false },
+                { category: '成人行李', item: '髒衣袋數個', checked: false },
+
+                { category: '米花寶行李', item: '牙刷牙膏、小杯子', checked: false },
+                { category: '米花寶行李', item: '鴨鴨小夜燈', checked: false },
+                { category: '米花寶行李', item: '小電風扇 (需充飽電)', checked: false },
+                { category: '米花寶行李', item: '拖鞋', checked: false },
+                { category: '米花寶行李', item: '少量玩具 (拼圖、小車車…)', checked: false },
+                { category: '米花寶行李', item: '抱抱羊', checked: false },
+                { category: '米花寶行李', item: '備用藥: 診所藥、皮膚藥(普特皮 / 四環素 / 敏撲寧 )、B5、OK蹦、蚊子藥、防蚊液', checked: false },
+                { category: '米花寶行李', item: '耳溫槍', checked: false },
+                { category: '米花寶行李', item: '夜用尿布6 + 一般尿布20-30片', checked: false },
+                { category: '米花寶行李', item: '浴巾', checked: false },
+                { category: '米花寶行李', item: '衣服*6套、睡衣*2套', checked: false },
+                { category: '米花寶行李', item: '外套', checked: false },
+                { category: '米花寶行李', item: '背巾', checked: false },
+                { category: '米花寶行李', item: '外出透明袋', checked: false }
             ],
             itinerary: [
                 { day: 1, date: '11/21 (六)', events: [
@@ -579,6 +614,23 @@
                 return defaultValue;
             }
         }
+        
+        function loadExchangeRate() {
+            currentExchangeRate = loadFromStorage(STORAGE_KEY.EXCHANGERATE, 1);
+            document.getElementById('customExchangeRate').value = currentExchangeRate;
+        }
+        
+        function saveExchangeRate() {
+            const newRate = parseFloat(document.getElementById('customExchangeRate').value);
+            if (!isNaN(newRate) && newRate > 0) {
+                currentExchangeRate = newRate;
+                saveToStorage(STORAGE_KEY.EXCHANGERATE, currentExchangeRate);
+                showToast(`匯率已更新為: 1 THB ≈ ${currentExchangeRate} TWD`);
+            } else {
+                showToast("請輸入有效匯率！");
+                document.getElementById('customExchangeRate').value = currentExchangeRate;
+            }
+        }
 
         function getTypeIcon(type) {
             switch(type) {
@@ -666,11 +718,11 @@
                     throw new Error("Invalid calculation");
                 }
 
-                const amountTWD = (amountTHB * EXCHANGE_RATE_TWD_PER_THB).toFixed(2);
+                const amountTWD = (amountTHB * currentExchangeRate).toFixed(2);
                 
                 resultDiv.innerHTML = `
                     <div class="font-extrabold text-2xl text-[#6B8E23]">${amountTHB.toFixed(2)} THB</div>
-                    <div class="text-sm text-gray-500 mt-1">=</div>
+                    <div class="text-sm text-gray-500 mt-1">≈</div>
                     <div class="font-extrabold text-2xl text-[#4A90E2]">${amountTWD} TWD</div>
                 `;
 
@@ -739,7 +791,7 @@
                 id: Date.now(),
                 item,
                 amountTHB: amountTHB.toFixed(2),
-                amountTWD: (amountTHB * EXCHANGE_RATE_TWD_PER_THB).toFixed(2),
+                amountTWD: (amountTHB * currentExchangeRate).toFixed(2),
                 photoBase64,
                 timestamp: new Date().toLocaleString('zh-TW', { hour12: false })
             };
@@ -835,7 +887,7 @@
             let currentCategory = '';
             listData.forEach((item, index) => {
                 if (item.category !== currentCategory) {
-                    html += `<h4 class="text-lg font-bold text-gray-600 mt-3 mb-1">${item.category} 清單</h4>`;
+                    html += `<h4 class="text-lg font-bold text-gray-600 mt-3 mb-1">${item.category}</h4>`;
                     currentCategory = item.category;
                 }
                 html += `
@@ -887,6 +939,7 @@
         window.onload = function() {
             switchTab('plan'); 
             renderItinerary();
+            loadExchangeRate();
             expenses = loadFromStorage(STORAGE_KEY.EXPENSES, []);
             renderExpenseList();
             document.getElementById('expenseForm').addEventListener('submit', handleExpenseSubmit);
